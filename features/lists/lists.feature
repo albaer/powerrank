@@ -33,3 +33,10 @@ Feature: Manage lists
     Then I should see "Taylor Swift Singles"
     And I should see "Doctor Who Episodes"
     And I should see "Roller Coasters"
+
+  Scenario: Create a list
+    When I go to the new list page
+    And I fill in "Title" with "Muppets"
+    And I press "Create"
+    Then I should see "Muppets"
+
