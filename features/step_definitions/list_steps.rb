@@ -11,3 +11,11 @@ Given(/^there is a list called "(.*?)" with items:$/) do |list_title, table|
     list.items << item
   end
 end
+
+Given(/^there are lists$/) do |table|
+  table.hashes.each do |record|
+    list                         = FactoryGirl.build(:list)
+    list.title                   = record['title']           unless record['title'].blank?
+    list.save!
+  end
+end

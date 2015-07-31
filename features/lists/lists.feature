@@ -22,3 +22,14 @@ Feature: Manage lists
     And I should see "Dr. Bunsen Honeydew"
     And I should see "Gonzo"
     And I should see "Rowlf"
+
+  Scenario: View all the lists
+    Given there are lists
+      | title                |
+      | Taylor Swift Singles |
+      | Doctor Who Episodes  |
+      | Roller Coasters      |
+    When I go to the lists page
+    Then I should see "Taylor Swift Singles"
+    And I should see "Doctor Who Episodes"
+    And I should see "Roller Coasters "
