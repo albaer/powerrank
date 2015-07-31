@@ -49,7 +49,7 @@ Feature: Manage lists
   #  Then I should see "Muppets"
   #  And I should see "Kermit"
 
-  Scenario: Edit a list including its items
+  Scenario: Edit list page shows the lists items
     Given there is a list called "Muppets" with items:
       | text                 | description     | position |
       | Kermit               | Frog            | 1        |
@@ -59,7 +59,7 @@ Feature: Manage lists
       | Dr. Bunsen Honeydew  | Scientist       | 5        |
       | Gonzo                | The Great       | 6        |
       | Rowlf                | Dog             | 7        |
-    When I go to the edit list page
+    When I go to the list edit page
     Then I should see a field prefilled with "Muppets"
     And I should see a field prefilled with "Kermit"
     And I should see a field prefilled with "Fozzie"
@@ -67,4 +67,14 @@ Feature: Manage lists
     And I should see a field prefilled with "Dr. Bunsen Honeydew"
     And I should see a field prefilled with "Gonzo"
     And I should see a field prefilled with "Rowlf"
+
+  Scenario: Edit a list including its items
+    Given there is a list called "Muppets" with items:
+      | text                 | description     | position |
+      | Kermit               | Frog            | 1        |
+    When I go to the list edit page
+    And I fill in "Text" with "Fozzie"
+    And I press "Update List"
+    Then I should see "Fozzie"
+    And I should not see "Kermit"
 

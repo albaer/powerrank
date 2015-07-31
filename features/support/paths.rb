@@ -4,6 +4,8 @@ def path_to(page_name)
  
   when /^list\sdetail\spage$/i
     then list_path(List.first)
+  when /^list\sedit\spage$/i
+    then edit_list_path(List.first)
 
   else
     begin
