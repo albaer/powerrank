@@ -158,44 +158,6 @@ When /^(?:I|i) unselect following values from "([^"]*)":$/ do |field, values|
   end
 end
 
-Then /^the following values should be selected in "([^"]*)":$/ do |select_box, values|
-  values = values.transpose.raw
-  if values.size > 1
-    raise 'table should have only one column in this step!'
-  else
-    values = values.first
-  end
-  select_box=find_field(select_box)
-  unless select_box['multiple']
-    raise "this is not multiple select box!"
-  else
-    values.each do |value|
-      if select_box.respond_to?(:should)
-  select_box.value.should include(value)
-      else
-  assert select_box.value.include?(value)
-      end
-    end
-  end
-end
-Then /^the following values should not be selected in "([^"]*)":$/ do |select_box, values|
-  values = values.transpose.raw
-  if values.size > 1
-    raise 'table should have only one column in this step!'
-  else
-    values = values.first
-  end
-
-  select_box=find_field(select_box)
-  unless select_box['multiple']
-    raise "this is not multiple select box!"
-  else
-    values.each do |value|
-      if select_box.respond_to?(:should)
-  select_box.value.should_not include(value)
-      else
-  assert !select_box.value.include?(value)
-      end
-    end
-  end
+Then(/^I should see a field prefilled with "(.*?)"$/) do |text|
+  expect(page).to have_selector("input[value='#{text}']")
 end

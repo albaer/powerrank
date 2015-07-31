@@ -1,0 +1,18 @@
+<%= form_for @list do |list_builder| %>
+    
+    <%= list_builder.label :title %>
+    <%= list_builder.text_field :title %>
+
+    <br/>
+    <br/>
+
+    <%= list_builder.fields_for :items do |item_builder| %>
+    
+      <%= item_builder.label :text %>
+      <%= item_builder.text_field :text %>
+      <br/>
+    
+    <% end %>
+
+    <%= list_builder.submit %>
+<% end %>

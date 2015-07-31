@@ -37,6 +37,34 @@ Feature: Manage lists
   Scenario: Create a list
     When I go to the new list page
     And I fill in "Title" with "Muppets"
-    And I press "Create"
+    And I press "Create List"
     Then I should see "Muppets"
+
+  #@javascript
+  #Scenario: Create a list with items
+  #  When I go to the new list page
+  #  And I fill in "Title" with "Muppets"
+  #  And I fill in "Item" with "Kermit"
+  #  And I press "Create List"
+  #  Then I should see "Muppets"
+  #  And I should see "Kermit"
+
+  Scenario: Edit a list including its items
+    Given there is a list called "Muppets" with items:
+      | text                 | description     | position |
+      | Kermit               | Frog            | 1        |
+      | Fozzie               | Bear            | 2        |
+      | Swedish Chef         | Bork bork bork  | 3        |
+      | Beaker               | Scientist       | 4        |
+      | Dr. Bunsen Honeydew  | Scientist       | 5        |
+      | Gonzo                | The Great       | 6        |
+      | Rowlf                | Dog             | 7        |
+    When I go to the edit list page
+    Then I should see a field prefilled with "Muppets"
+    And I should see a field prefilled with "Kermit"
+    And I should see a field prefilled with "Fozzie"
+    And I should see a field prefilled with "Swedish Chef"
+    And I should see a field prefilled with "Dr. Bunsen Honeydew"
+    And I should see a field prefilled with "Gonzo"
+    And I should see a field prefilled with "Rowlf"
 
