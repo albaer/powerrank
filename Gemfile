@@ -37,6 +37,7 @@ group :test do
   gem 'shoulda-matchers', require: false
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
+  gem 'factory_girl_rails'
 end
 
 # Use ActiveModel has_secure_password
