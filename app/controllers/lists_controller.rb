@@ -44,7 +44,8 @@ class ListsController < ApplicationController
         :id,
         :text,
         :description,
-        :position
+        :position,
+        :_destroy
       ]
     )
   end
