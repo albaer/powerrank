@@ -14,7 +14,7 @@ Feature: Manage lists
       | Dr. Bunsen Honeydew  | Scientist       | 5        |
       | Gonzo                | The Great       | 6        |
       | Rowlf                | Dog             | 7        |
-    When I go to list detail page
+    When I go to the list detail page
     Then I should see "Muppets"
     And I should see "Kermit"
     And I should see "Fozzie"
@@ -32,4 +32,4 @@ Feature: Manage lists
     When I go to the lists page
     Then I should see "Taylor Swift Singles"
     And I should see "Doctor Who Episodes"
-    And I should see "Roller Coasters "
+    And I should see "Roller Coasters"
